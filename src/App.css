@@ -1,0 +1,14 @@
+@import "bootstrap-icons/font/bootstrap-icons";
+.product-desc{
+  display: block;
+  width: 100%;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+.cat-badge{
+  position: absolute;
+  top: 2.4%;
+  right: 3%;
+  text-transform: capitalize;
+  /* font-weight: normal !important; */
+}
