@@ -1,4 +1,3 @@
-
 import './App.css'
 import Products from './pages/Products';
 import { BrowserRouter, Route, Routes } from 'react-router';

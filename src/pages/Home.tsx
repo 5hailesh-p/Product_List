@@ -28,13 +28,13 @@ const Home = () => {
 
                 <Row className='g-5 align-items-center'>
                     <Col xs md={4} >
-                        <div className='text-center shadow-lg'>
+                        <div className='text-center shadow-lg'  data-aos="fade-right" data-aos-delay={100}>
                             <img src="https://images.unsplash.com/photo-1499096382193-ebb232527fee" loading="lazy" className='img-fluid' alt="img" />
 
                         </div>
                     </Col>
                     <Col xs md={8} >
-                        <div className="text-md-start text-center">
+                        <div className="text-md-start text-center" data-aos="fade-left" data-aos-delay={200}>
 
 
 
@@ -65,7 +65,11 @@ const Home = () => {
                                 sorting, and responsive design, you can browse products
                                 seamlessly across all devices.
                             </p>
-                            <Button as={Link} to='/products' variant="outline-success">Explore More</Button>
+                            <Link to="/products">
+                                <Button variant="outline-success">
+                                    Explore More
+                                </Button>
+                            </Link>
                         </div>
                     </Col>
                 </Row>
