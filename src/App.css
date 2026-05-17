@@ -12,3 +12,8 @@
   text-transform: capitalize;
   /* font-weight: normal !important; */
 }
+.c-img {
+  aspect-ratio: 3;
+  object-fit: cover;
+  object-position: top;
+}

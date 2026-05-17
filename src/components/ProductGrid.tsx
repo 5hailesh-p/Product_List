@@ -13,12 +13,11 @@ export const ProductGrid = ({ displayProduct }: Props) => {
     const offSet = (page - 1) * limit
 
 
-    // console.log(offSet,limit,totalPages)
     return (
         <>
             <Row className="g-3 align-items-stretchS">
-                {displayProduct.slice(offSet, offSet + limit).map((item) => (
-                    <Col xs={6} lg={3} md={4} sm={6} key={item.id}>
+                {displayProduct.slice(offSet, offSet + limit).map((item,index) => (
+                    <Col xs={6} lg={3} md={4} sm={6} key={item.id} data-aos="fade-up" data-aos-delay={index*50}>
                         <ProductCard item={item} />
                     </Col>
                 ))}

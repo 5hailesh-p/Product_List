@@ -1,13 +1,14 @@
 import { Badge, Card } from "react-bootstrap"
 import { currency } from "../constant/ProductConstants"
 import type { Product } from "../types/Product"
+import { Link } from "react-router"
 interface ProductCardProps {
     item: Product
 }
 const ProductCard = ({ item }: ProductCardProps) => {
 
     return (
-        <Card className="h-100 position-relative">
+        <Card className="h-100 position-relative text-decoration-none" as={Link} to={`/products/${item.id}`}>
             <Card.Img variant="top" src={item.thumbnail} loading="lazy" alt={item.title} />
             <Card.Body>
                 <Card.Title className="text-dark">{item.title}</Card.Title>

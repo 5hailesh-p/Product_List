@@ -1,78 +1,79 @@
-import { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
-import type { Product } from "../types/Product";
-import { FilterProducts } from "../components/FilterProducts";
-import { ProductGrid } from "../components/ProductGrid";
-import { ProductContext } from "../context/ProductContext";
-import { limit, fetchLimit} from "../constant/ProductConstants";
-
-const ProductList = () => {
-    const [allProducts, setAllProducts] = useState<Product[]>([])
-    const [error, setError] = useState<string | boolean | null>(false)
-    const [loading, setLoading] = useState<boolean>(true)
-
-    const [allCategory, setAllCategory] = useState<string[]>([])
-    const [displayProduct, setDisplayProduct] = useState<Product[]>([]);
-
-    // const [page, setPage] = useState<number>(1)
-    // const [totalPages, setTotalPages] = useState<number>(fetchLimit)
-    // const offSet = (page - 1) * limit
+import { Button, Carousel, Col, Container, Row } from "react-bootstrap"
+import Header from "../components/Header"
+import { Link } from "react-router"
 
 
-    useEffect(() => {
-
-        fetch(`https://dummyjson.com/products?limit=${fetchLimit * limit}`)
-            .then(res => res.json())
-            .then(data => setAllProducts(data.products))
-            .catch(err => setError(err))
-            .finally(() => setLoading(false))
-    }, [])
-
-    useEffect(() => {
-
-        let allcats = new Set<string>();
-        allProducts.map((i) => allcats.add(i.category))
-        setAllCategory([...allcats])
-
-    }, [allProducts])
-
-
-
-    if (loading) return <p> Loading...</p>
-    if (error) return <p> Some this went Wrong</p>
-
+const Home = () => {
     return (
         <>
-            <ProductContext.Provider value={allProducts}>
-                <Container>
+            <Header />
 
-                    <div className="text-center my-5">
-                        <h2 className="fw-bold">Product List</h2>
-                        <p>Browse our complete collection of available products with detailed information and pricing.
-                        </p>
-                    </div>
-                    <FilterProducts
-                        allCategory={allCategory}
-                        setDisplayProduct={setDisplayProduct}
-                    />
+            <Carousel fade>
+                <Carousel.Item>
+                    <img src="https://images.unsplash.com/photo-1674027392887-751d6396b710" className="img-fluid c-img" loading="lazy" alt="First slide" />
+
+                </Carousel.Item>
+                <Carousel.Item>
+                    <img src="https://images.unsplash.com/photo-1487014679447-9f8336841d58" className="img-fluid c-img" loading="lazy" alt="Second slide" />
+
+                </Carousel.Item>
+
+            </Carousel>
+
+            <Container className="mb-5">
+                <div className="text-center my-5">
+                    <h2 className="fw-bold">About Us</h2>
+                    <p>Browse our complete collection of available products with detailed information and pricing.</p>
+                </div>
+
+                <Row className='g-5 align-items-center'>
+                    <Col xs md={4} >
+                        <div className='text-center shadow-lg'>
+                            <img src="https://images.unsplash.com/photo-1499096382193-ebb232527fee" loading="lazy" className='img-fluid' alt="img" />
+
+                        </div>
+                    </Col>
+                    <Col xs md={8} >
+                        <div className="text-md-start text-center">
 
 
 
-                    <ProductGrid displayProduct={displayProduct} />
+                            <h2 className='fw-bold my-3'>
+                                Discover our Best Products for Your Lifestyle
+                            </h2>
+
+                            <div className="d-flex justify-content-between align-items-center">
+                                <span className='fw-bold text-success fs-3'>
+                                    Trending Products
+                                </span>
+                            </div>
+
+                            <p className="text-secondary my-2 product-desc">
+                                Explore a wide range of high-quality electronics, accessories,
+                                fashion items, and everyday essentials — all in one place.
+                                Filter, search, and compare products easily with a smooth
+                                shopping experience.
+                            </p>
+
+                            <h6 className='fw-bold mt-4'>
+                                About Site
+                            </h6>
+
+                            <p className="text-secondary my-2">
+                                Our platform is designed to help users discover top-rated
+                                products quickly and efficiently. With powerful filtering,
+                                sorting, and responsive design, you can browse products
+                                seamlessly across all devices.
+                            </p>
+                            <Button as={Link} to='/products' variant="outline-success">Explore More</Button>
+                        </div>
+                    </Col>
+                </Row>
+            </Container>
 
 
-                </Container>
-
-
-
-
-
-
-                
-
-            </ProductContext.Provider>
         </>
     )
 }
 
-export default ProductList
+export default Home
