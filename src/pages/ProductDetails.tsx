@@ -57,7 +57,7 @@ useEffect(()=>{
                                 </span>
                             </div>
                             <p className="text-secondary my-2 product-desc text-nowrap">{product?.description}</p>
-                            <h6 className='fw-bold mt-4'>About Product</h6>
+                            <h3 className='fw-bold mt-4 fs-6'>About Product</h3>
                             <p className="text-secondary my-2">{product?.description}</p>
                         </div>
                     </Col>
