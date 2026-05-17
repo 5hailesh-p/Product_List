@@ -8,6 +8,7 @@ import { Api, fetchLimit, limit } from './constant/ProductConstants';
 import type { Product } from './types/Product';
 import AOS from "aos";
 import Home from './pages/Home';
+import { Spinner } from 'react-bootstrap';
 function App() {
 
   const [allProducts, setAllProducts] = useState<Product[]>([])
@@ -47,8 +48,21 @@ function App() {
   }, []);
 
 
-  if (loading) return <p> Loading...</p>
-  if (error) return <p> Some this went Wrong</p>
+  if (loading) return (
+    <div className="min-vh-100 d-flex justify-content-center align-items-center">
+      <Spinner animation="border" role="status">
+        <span className="visually-hidden">Loading...</span>
+      </Spinner>
+    </div>
+  )
+  if (error) return (
+    <div className="min-vh-100 d-flex justify-content-center align-items-center">
+      <p> Some this went Wrong</p>
+
+    </div>
+
+
+  )
 
   return (
     <>
@@ -56,7 +70,7 @@ function App() {
 
         <BrowserRouter>
           <Routes>
-            <Route path='/' element={<Home/>} />
+            <Route path='/' element={<Home />} />
             <Route path='/products' element={<Products allCategory={allCategory} />} />
             <Route path='/products/:id' element={<ProductDetails />} />
           </Routes>

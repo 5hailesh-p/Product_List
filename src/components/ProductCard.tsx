@@ -15,7 +15,7 @@ const ProductCard = ({ item }: ProductCardProps) => {
                 <Card.Title className="fw-bold text-success">{currency}   {item.price}
                     <div className="my-2 text-dark  small d-flex gap-1" >
                         {[...Array(5)].map((_, i) =>
-                            i <= Math.round(item.rating) ?
+                            i < Math.round(item.rating) ?
                                 (<i className="bi bi-star-fill small text-warning" key={i}></i>) :
                                 (<i className="bi bi-star small text-warning" key={i}></i>)
                         )}

@@ -34,7 +34,7 @@ useEffect(()=>{
 
                 <Row className='g-5'>
                     <Col xs md={6} >
-                        <div className='text-center shadow-lg'>
+                        <div className='text-center shadow-lg' data-aos="fade-left" data-aos-delay={100}>
                             <img src={product?.thumbnail} className='img-fluid' alt={product?.title} />
 
                         </div>
@@ -49,7 +49,7 @@ useEffect(()=>{
                                 <span className='fw-bold text-success fs-3  '>{currency} {product?.price}</span>
                                 <span className="d-flex align-items-center">
                                     {[...Array(5)].map((_, i) =>
-                                        i <= Math.round(Number(product?.rating)) ?
+                                        i < Math.round(Number(product?.rating)) ?
                                             (<i className="bi bi-star-fill small text-warning" key={i}></i>) :
                                             (<i className="bi bi-star small text-warning" key={i}></i>)
                                     )}
