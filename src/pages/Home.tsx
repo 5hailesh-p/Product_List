@@ -28,13 +28,13 @@ const Home = () => {
 
                 <Row className='g-5 align-items-center'>
                     <Col xs={12} lg={4} md={5} sm={12} >
-                        <div className='text-center shadow-lg'  data-aos="fade-right" data-aos-delay={100}>
+                        <div className='text-center shadow-lg'  data-aos="fade-up" data-aos-delay={100}>
                             <img src="https://images.unsplash.com/photo-1499096382193-ebb232527fee" loading="lazy" className='img-fluid' alt="img" />
 
                         </div>
                     </Col>
                     <Col xs={12} lg={8} md={7} sm={12} >
-                        <div className="text-md-start text-center" data-aos="fade-left" data-aos-delay={200}>
+                        <div className="text-md-start text-center" data-aos="fade-up" data-aos-delay={200}>
 
 
 
