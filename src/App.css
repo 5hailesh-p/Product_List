@@ -1,4 +1,7 @@
 @import "bootstrap-icons/font/bootstrap-icons";
+body{
+  overflow-x: hidden;
+}
 .product-desc{
   display: block;
   width: 100%;
