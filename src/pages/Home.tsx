@@ -67,7 +67,7 @@ const Home = () => {
                             </p>
                             <Link to="/products">
                                 <Button variant="outline-success">
-                                    Explore More
+                                    Explore Products
                                 </Button>
                             </Link>
                         </div>

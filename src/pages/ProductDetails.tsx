@@ -1,6 +1,6 @@
 import { useParams } from 'react-router'
 import { Col, Container, Row } from 'react-bootstrap'
-import { useContext, } from 'react'
+import { useContext, useEffect, } from 'react'
 import { ProductContext } from '../context/ProductContext'
 import { currency } from '../constant/ProductConstants'
 import Header from '../components/Header'
@@ -13,6 +13,14 @@ export const ProductDetails = () => {
     const product = allproducts.find((i) => i.id == Number(id))
 
     const moreProduct = allproducts.filter((p) => product?.category.includes(p.category))
+
+useEffect(()=>{
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    })
+},[id])
+
 
     return (
 
